@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ConfiguracionCreateDlg" widgetVar="ConfiguracionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateConfiguracionTitle}">
+            <h:form id="ConfiguracionCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{configuracionController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_idconfiguracion}" for="idconfiguracion" />
+                        <p:inputText id="idconfiguracion" value="#{configuracionController.selected.idconfiguracion}" title="#{bundle.CreateConfiguracionTitle_idconfiguracion}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_idconfiguracion}"/>
+
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_idperiodo}" for="idperiodo" />
+                        <p:selectOneMenu id="idperiodo" value="#{configuracionController.selected.idperiodo}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_idperiodo}">
+                            <f:selectItems value="#{periodoController.itemsAvailableSelectOne}"
+                                           var="idperiodoItem"
+                                           itemValue="#{idperiodoItem}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_porcentajecaja}" for="porcentajecaja" />
+                        <p:inputText id="porcentajecaja" value="#{configuracionController.selected.porcentajecaja}" title="#{bundle.CreateConfiguracionTitle_porcentajecaja}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_porcentajecaja}"/>
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_porcentajesena}" for="porcentajesena" />
+                        <p:inputText id="porcentajesena" value="#{configuracionController.selected.porcentajesena}" title="#{bundle.CreateConfiguracionTitle_porcentajesena}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_porcentajesena}"/>
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_porcentajeicbf}" for="porcentajeicbf" />
+                        <p:inputText id="porcentajeicbf" value="#{configuracionController.selected.porcentajeicbf}" title="#{bundle.CreateConfiguracionTitle_porcentajeicbf}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_porcentajeicbf}"/>
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_salariominimo}" for="salariominimo" />
+                        <p:inputText id="salariominimo" value="#{configuracionController.selected.salariominimo}" title="#{bundle.CreateConfiguracionTitle_salariominimo}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_salariominimo}"/>
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_subsidiotransporte}" for="subsidiotransporte" />
+                        <p:inputText id="subsidiotransporte" value="#{configuracionController.selected.subsidiotransporte}" title="#{bundle.CreateConfiguracionTitle_subsidiotransporte}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_subsidiotransporte}"/>
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_diasliquidar}" for="diasliquidar" />
+                        <p:inputText id="diasliquidar" value="#{configuracionController.selected.diasliquidar}" title="#{bundle.CreateConfiguracionTitle_diasliquidar}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_diasliquidar}"/>
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_provisioncesantias}" for="provisioncesantias" />
+                        <p:inputText id="provisioncesantias" value="#{configuracionController.selected.provisioncesantias}" title="#{bundle.CreateConfiguracionTitle_provisioncesantias}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_provisioncesantias}"/>
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_provisionintereses}" for="provisionintereses" />
+                        <p:inputText id="provisionintereses" value="#{configuracionController.selected.provisionintereses}" title="#{bundle.CreateConfiguracionTitle_provisionintereses}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_provisionintereses}"/>
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_provisionprima}" for="provisionprima" />
+                        <p:inputText id="provisionprima" value="#{configuracionController.selected.provisionprima}" title="#{bundle.CreateConfiguracionTitle_provisionprima}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_provisionprima}"/>
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_provisionvacaciones}" for="provisionvacaciones" />
+                        <p:inputText id="provisionvacaciones" value="#{configuracionController.selected.provisionvacaciones}" title="#{bundle.CreateConfiguracionTitle_provisionvacaciones}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_provisionvacaciones}"/>
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_saludempleado}" for="saludempleado" />
+                        <p:inputText id="saludempleado" value="#{configuracionController.selected.saludempleado}" title="#{bundle.CreateConfiguracionTitle_saludempleado}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_saludempleado}"/>
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_saludempresa}" for="saludempresa" />
+                        <p:inputText id="saludempresa" value="#{configuracionController.selected.saludempresa}" title="#{bundle.CreateConfiguracionTitle_saludempresa}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_saludempresa}"/>
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_convencionempleado}" for="convencionempleado" />
+                        <p:inputText id="convencionempleado" value="#{configuracionController.selected.convencionempleado}" title="#{bundle.CreateConfiguracionTitle_convencionempleado}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_convencionempleado}"/>
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_convencionempresa}" for="convencionempresa" />
+                        <p:inputText id="convencionempresa" value="#{configuracionController.selected.convencionempresa}" title="#{bundle.CreateConfiguracionTitle_convencionempresa}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_convencionempresa}"/>
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_pensionempleado}" for="pensionempleado" />
+                        <p:inputText id="pensionempleado" value="#{configuracionController.selected.pensionempleado}" title="#{bundle.CreateConfiguracionTitle_pensionempleado}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_pensionempleado}"/>
+                        <p:outputLabel value="#{bundle.CreateConfiguracionLabel_pensionempresa}" for="pensionempresa" />
+                        <p:inputText id="pensionempresa" value="#{configuracionController.selected.pensionempresa}" title="#{bundle.CreateConfiguracionTitle_pensionempresa}" required="true" requiredMessage="#{bundle.CreateConfiguracionRequiredMessage_pensionempresa}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{configuracionController.create}" value="#{bundle.Save}" update="display,:ConfiguracionListForm:datalist,:growl" oncomplete="handleSubmit(args,'ConfiguracionCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ConfiguracionCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

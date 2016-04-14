@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LiquidacionempleadosEditDlg" widgetVar="LiquidacionempleadosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditLiquidacionempleadosTitle}">
+            <h:form id="LiquidacionempleadosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{liquidacionempleadosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_idliquidacionempleado}" for="idliquidacionempleado" />
+                        <p:inputText id="idliquidacionempleado" value="#{liquidacionempleadosController.selected.idliquidacionempleado}" title="#{bundle.EditLiquidacionempleadosTitle_idliquidacionempleado}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_idliquidacionempleado}"/>
+
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_idperiodo}" for="idperiodo" />
+                        <p:selectOneMenu id="idperiodo" value="#{liquidacionempleadosController.selected.idperiodo}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_idperiodo}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{periodoController.itemsAvailableSelectOne}"
+                                           var="idperiodoItem"
+                                           itemValue="#{idperiodoItem}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_cedula}" for="cedula" />
+                        <p:selectOneMenu id="cedula" value="#{liquidacionempleadosController.selected.cedula}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_cedula}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
+                                           var="cedulaItem"
+                                           itemValue="#{cedulaItem}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_sueldo}" for="sueldo" />
+                        <p:inputText id="sueldo" value="#{liquidacionempleadosController.selected.sueldo}" title="#{bundle.EditLiquidacionempleadosTitle_sueldo}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_sueldo}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_diassalario}" for="diassalario" />
+                        <p:inputText id="diassalario" value="#{liquidacionempleadosController.selected.diassalario}" title="#{bundle.EditLiquidacionempleadosTitle_diassalario}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_diassalario}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_salario}" for="salario" />
+                        <p:inputText id="salario" value="#{liquidacionempleadosController.selected.salario}" title="#{bundle.EditLiquidacionempleadosTitle_salario}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_salario}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_diastransporte}" for="diastransporte" />
+                        <p:inputText id="diastransporte" value="#{liquidacionempleadosController.selected.diastransporte}" title="#{bundle.EditLiquidacionempleadosTitle_diastransporte}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_diastransporte}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_transporte}" for="transporte" />
+                        <p:inputText id="transporte" value="#{liquidacionempleadosController.selected.transporte}" title="#{bundle.EditLiquidacionempleadosTitle_transporte}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_transporte}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_ingresobaseaportes}" for="ingresobaseaportes" />
+                        <p:inputText id="ingresobaseaportes" value="#{liquidacionempleadosController.selected.ingresobaseaportes}" title="#{bundle.EditLiquidacionempleadosTitle_ingresobaseaportes}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_ingresobaseaportes}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_diasaportes}" for="diasaportes" />
+                        <p:inputText id="diasaportes" value="#{liquidacionempleadosController.selected.diasaportes}" title="#{bundle.EditLiquidacionempleadosTitle_diasaportes}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_diasaportes}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_aportessalud}" for="aportessalud" />
+                        <p:inputText id="aportessalud" value="#{liquidacionempleadosController.selected.aportessalud}" title="#{bundle.EditLiquidacionempleadosTitle_aportessalud}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_aportessalud}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_aportespension}" for="aportespension" />
+                        <p:inputText id="aportespension" value="#{liquidacionempleadosController.selected.aportespension}" title="#{bundle.EditLiquidacionempleadosTitle_aportespension}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_aportespension}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_fondosolidaridad}" for="fondosolidaridad" />
+                        <p:inputText id="fondosolidaridad" value="#{liquidacionempleadosController.selected.fondosolidaridad}" title="#{bundle.EditLiquidacionempleadosTitle_fondosolidaridad}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_fondosolidaridad}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_ingresobaseprestaciones}" for="ingresobaseprestaciones" />
+                        <p:inputText id="ingresobaseprestaciones" value="#{liquidacionempleadosController.selected.ingresobaseprestaciones}" title="#{bundle.EditLiquidacionempleadosTitle_ingresobaseprestaciones}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_ingresobaseprestaciones}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_devengados}" for="devengados" />
+                        <p:inputText id="devengados" value="#{liquidacionempleadosController.selected.devengados}" title="#{bundle.EditLiquidacionempleadosTitle_devengados}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_devengados}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_deducidos}" for="deducidos" />
+                        <p:inputText id="deducidos" value="#{liquidacionempleadosController.selected.deducidos}" title="#{bundle.EditLiquidacionempleadosTitle_deducidos}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_deducidos}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_neto}" for="neto" />
+                        <p:inputText id="neto" value="#{liquidacionempleadosController.selected.neto}" title="#{bundle.EditLiquidacionempleadosTitle_neto}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_neto}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_idpension}" for="idpension" />
+                        <p:selectOneMenu id="idpension" value="#{liquidacionempleadosController.selected.idpension}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_idpension}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{fondopensionController.itemsAvailableSelectOne}"
+                                           var="idpensionItem"
+                                           itemValue="#{idpensionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_ideps}" for="ideps" />
+                        <p:selectOneMenu id="ideps" value="#{liquidacionempleadosController.selected.ideps}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_ideps}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{epsController.itemsAvailableSelectOne}"
+                                           var="idepsItem"
+                                           itemValue="#{idepsItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempleadosLabel_idcaja}" for="idcaja" />
+                        <p:selectOneMenu id="idcaja" value="#{liquidacionempleadosController.selected.idcaja}" required="true" requiredMessage="#{bundle.EditLiquidacionempleadosRequiredMessage_idcaja}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cajacompensacionController.itemsAvailableSelectOne}"
+                                           var="idcajaItem"
+                                           itemValue="#{idcajaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{liquidacionempleadosController.update}" value="#{bundle.Save}" update="display,:LiquidacionempleadosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'LiquidacionempleadosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="LiquidacionempleadosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

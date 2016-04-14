@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ConfiguracionViewDlg" widgetVar="ConfiguracionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewConfiguracionTitle}">
+            <h:form id="ConfiguracionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{configuracionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_idconfiguracion}"/>
+                        <h:outputText value="#{configuracionController.selected.idconfiguracion}" title="#{bundle.ViewConfiguracionTitle_idconfiguracion}"/>
+
+                        <h:outputText value="Año"/>
+                        <h:outputText value="#{configuracionController.selected.idperiodo.anio}" title="#{bundle.ViewConfiguracionTitle_idperiodo}"/>
+                        <h:outputText value="Mes"/>
+                        <h:outputText value="#{configuracionController.selected.idperiodo.mes}" title="#{bundle.ViewConfiguracionTitle_idperiodo}"/>
+                        <h:outputText value="Corte"/>
+                        <h:outputText value="#{configuracionController.selected.idperiodo.corte}" title="#{bundle.ViewConfiguracionTitle_idperiodo}"/>
+
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_porcentajecaja}"/>
+                        <h:outputText value="#{configuracionController.selected.porcentajecaja}" title="#{bundle.ViewConfiguracionTitle_porcentajecaja}"/>
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_porcentajesena}"/>
+                        <h:outputText value="#{configuracionController.selected.porcentajesena}" title="#{bundle.ViewConfiguracionTitle_porcentajesena}"/>
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_porcentajeicbf}"/>
+                        <h:outputText value="#{configuracionController.selected.porcentajeicbf}" title="#{bundle.ViewConfiguracionTitle_porcentajeicbf}"/>
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_salariominimo}"/>
+                        <h:outputText value="#{configuracionController.selected.salariominimo}" title="#{bundle.ViewConfiguracionTitle_salariominimo}"/>
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_subsidiotransporte}"/>
+                        <h:outputText value="#{configuracionController.selected.subsidiotransporte}" title="#{bundle.ViewConfiguracionTitle_subsidiotransporte}"/>
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_diasliquidar}"/>
+                        <h:outputText value="#{configuracionController.selected.diasliquidar}" title="#{bundle.ViewConfiguracionTitle_diasliquidar}"/>
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_provisioncesantias}"/>
+                        <h:outputText value="#{configuracionController.selected.provisioncesantias}" title="#{bundle.ViewConfiguracionTitle_provisioncesantias}"/>
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_provisionintereses}"/>
+                        <h:outputText value="#{configuracionController.selected.provisionintereses}" title="#{bundle.ViewConfiguracionTitle_provisionintereses}"/>
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_provisionprima}"/>
+                        <h:outputText value="#{configuracionController.selected.provisionprima}" title="#{bundle.ViewConfiguracionTitle_provisionprima}"/>
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_provisionvacaciones}"/>
+                        <h:outputText value="#{configuracionController.selected.provisionvacaciones}" title="#{bundle.ViewConfiguracionTitle_provisionvacaciones}"/>
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_saludempleado}"/>
+                        <h:outputText value="#{configuracionController.selected.saludempleado}" title="#{bundle.ViewConfiguracionTitle_saludempleado}"/>
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_saludempresa}"/>
+                        <h:outputText value="#{configuracionController.selected.saludempresa}" title="#{bundle.ViewConfiguracionTitle_saludempresa}"/>
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_convencionempleado}"/>
+                        <h:outputText value="#{configuracionController.selected.convencionempleado}" title="#{bundle.ViewConfiguracionTitle_convencionempleado}"/>
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_convencionempresa}"/>
+                        <h:outputText value="#{configuracionController.selected.convencionempresa}" title="#{bundle.ViewConfiguracionTitle_convencionempresa}"/>
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_pensionempleado}"/>
+                        <h:outputText value="#{configuracionController.selected.pensionempleado}" title="#{bundle.ViewConfiguracionTitle_pensionempleado}"/>
+                        <h:outputText value="#{bundle.ViewConfiguracionLabel_pensionempresa}"/>
+                        <h:outputText value="#{configuracionController.selected.pensionempresa}" title="#{bundle.ViewConfiguracionTitle_pensionempresa}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ConfiguracionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

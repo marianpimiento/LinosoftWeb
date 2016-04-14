@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ConfiguracionEditDlg" widgetVar="ConfiguracionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditConfiguracionTitle}">
+            <h:form id="ConfiguracionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{configuracionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_idconfiguracion}" for="idconfiguracion" />
+                        <p:inputText id="idconfiguracion" value="#{configuracionController.selected.idconfiguracion}" title="#{bundle.EditConfiguracionTitle_idconfiguracion}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_idconfiguracion}"/>
+
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_idperiodo}" for="idperiodo" />
+                        <p:selectOneMenu id="idperiodo" value="#{configuracionController.selected.idperiodo}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_idperiodo}">
+                           <f:selectItems value="#{periodoController.itemsAvailableSelectOne}"
+                                           var="idperiodoItem"
+                                           itemValue="#{idperiodoItem}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_porcentajecaja}" for="porcentajecaja" />
+                        <p:inputText id="porcentajecaja" value="#{configuracionController.selected.porcentajecaja}" title="#{bundle.EditConfiguracionTitle_porcentajecaja}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_porcentajecaja}"/>
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_porcentajesena}" for="porcentajesena" />
+                        <p:inputText id="porcentajesena" value="#{configuracionController.selected.porcentajesena}" title="#{bundle.EditConfiguracionTitle_porcentajesena}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_porcentajesena}"/>
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_porcentajeicbf}" for="porcentajeicbf" />
+                        <p:inputText id="porcentajeicbf" value="#{configuracionController.selected.porcentajeicbf}" title="#{bundle.EditConfiguracionTitle_porcentajeicbf}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_porcentajeicbf}"/>
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_salariominimo}" for="salariominimo" />
+                        <p:inputText id="salariominimo" value="#{configuracionController.selected.salariominimo}" title="#{bundle.EditConfiguracionTitle_salariominimo}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_salariominimo}"/>
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_subsidiotransporte}" for="subsidiotransporte" />
+                        <p:inputText id="subsidiotransporte" value="#{configuracionController.selected.subsidiotransporte}" title="#{bundle.EditConfiguracionTitle_subsidiotransporte}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_subsidiotransporte}"/>
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_diasliquidar}" for="diasliquidar" />
+                        <p:inputText id="diasliquidar" value="#{configuracionController.selected.diasliquidar}" title="#{bundle.EditConfiguracionTitle_diasliquidar}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_diasliquidar}"/>
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_provisioncesantias}" for="provisioncesantias" />
+                        <p:inputText id="provisioncesantias" value="#{configuracionController.selected.provisioncesantias}" title="#{bundle.EditConfiguracionTitle_provisioncesantias}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_provisioncesantias}"/>
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_provisionintereses}" for="provisionintereses" />
+                        <p:inputText id="provisionintereses" value="#{configuracionController.selected.provisionintereses}" title="#{bundle.EditConfiguracionTitle_provisionintereses}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_provisionintereses}"/>
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_provisionprima}" for="provisionprima" />
+                        <p:inputText id="provisionprima" value="#{configuracionController.selected.provisionprima}" title="#{bundle.EditConfiguracionTitle_provisionprima}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_provisionprima}"/>
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_provisionvacaciones}" for="provisionvacaciones" />
+                        <p:inputText id="provisionvacaciones" value="#{configuracionController.selected.provisionvacaciones}" title="#{bundle.EditConfiguracionTitle_provisionvacaciones}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_provisionvacaciones}"/>
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_saludempleado}" for="saludempleado" />
+                        <p:inputText id="saludempleado" value="#{configuracionController.selected.saludempleado}" title="#{bundle.EditConfiguracionTitle_saludempleado}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_saludempleado}"/>
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_saludempresa}" for="saludempresa" />
+                        <p:inputText id="saludempresa" value="#{configuracionController.selected.saludempresa}" title="#{bundle.EditConfiguracionTitle_saludempresa}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_saludempresa}"/>
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_convencionempleado}" for="convencionempleado" />
+                        <p:inputText id="convencionempleado" value="#{configuracionController.selected.convencionempleado}" title="#{bundle.EditConfiguracionTitle_convencionempleado}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_convencionempleado}"/>
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_convencionempresa}" for="convencionempresa" />
+                        <p:inputText id="convencionempresa" value="#{configuracionController.selected.convencionempresa}" title="#{bundle.EditConfiguracionTitle_convencionempresa}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_convencionempresa}"/>
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_pensionempleado}" for="pensionempleado" />
+                        <p:inputText id="pensionempleado" value="#{configuracionController.selected.pensionempleado}" title="#{bundle.EditConfiguracionTitle_pensionempleado}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_pensionempleado}"/>
+                        <p:outputLabel value="#{bundle.EditConfiguracionLabel_pensionempresa}" for="pensionempresa" />
+                        <p:inputText id="pensionempresa" value="#{configuracionController.selected.pensionempresa}" title="#{bundle.EditConfiguracionTitle_pensionempresa}" required="true" requiredMessage="#{bundle.EditConfiguracionRequiredMessage_pensionempresa}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{configuracionController.update}" value="#{bundle.Save}" update="display,:ConfiguracionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ConfiguracionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ConfiguracionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

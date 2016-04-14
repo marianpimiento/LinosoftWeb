@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LiquidacionempresaViewDlg" widgetVar="LiquidacionempresaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewLiquidacionempresaTitle}">
+            <h:form id="LiquidacionempresaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{liquidacionempresaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewLiquidacionempresaLabel_idliquidacionempresa}"/>
+                        <h:outputText value="#{liquidacionempresaController.selected.idliquidacionempresa}" title="#{bundle.ViewLiquidacionempresaTitle_idliquidacionempresa}"/>
+
+                        <h:outputText value="Año"/>
+                        <h:outputText value="#{liquidacionempresaController.selected.idperiodo.anio}" title="#{bundle.ViewLiquidacionempresaTitle_idperiodo}"/>
+                        <h:outputText value="Mes"/>
+                        <h:outputText value="#{liquidacionempresaController.selected.idperiodo.mes}" title="#{bundle.ViewLiquidacionempresaTitle_idperiodo}"/>
+                        <h:outputText value="Corte"/>
+                        <h:outputText value="#{liquidacionempresaController.selected.idperiodo.corte}" title="#{bundle.ViewLiquidacionempresaTitle_idperiodo}"/>
+
+                        <h:outputText value="#{bundle.ViewLiquidacionempresaLabel_baseaportes}"/>
+                        <h:outputText value="#{liquidacionempresaController.selected.baseaportes}" title="#{bundle.ViewLiquidacionempresaTitle_baseaportes}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempresaLabel_valorcaja}"/>
+                        <h:outputText value="#{liquidacionempresaController.selected.valorcaja}" title="#{bundle.ViewLiquidacionempresaTitle_valorcaja}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempresaLabel_valorsena}"/>
+                        <h:outputText value="#{liquidacionempresaController.selected.valorsena}" title="#{bundle.ViewLiquidacionempresaTitle_valorsena}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempresaLabel_valoricbf}"/>
+                        <h:outputText value="#{liquidacionempresaController.selected.valoricbf}" title="#{bundle.ViewLiquidacionempresaTitle_valoricbf}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempresaLabel_baseprestaciones}"/>
+                        <h:outputText value="#{liquidacionempresaController.selected.baseprestaciones}" title="#{bundle.ViewLiquidacionempresaTitle_baseprestaciones}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempresaLabel_basetransporte}"/>
+                        <h:outputText value="#{liquidacionempresaController.selected.basetransporte}" title="#{bundle.ViewLiquidacionempresaTitle_basetransporte}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempresaLabel_valorcesantias}"/>
+                        <h:outputText value="#{liquidacionempresaController.selected.valorcesantias}" title="#{bundle.ViewLiquidacionempresaTitle_valorcesantias}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempresaLabel_valorintereses}"/>
+                        <h:outputText value="#{liquidacionempresaController.selected.valorintereses}" title="#{bundle.ViewLiquidacionempresaTitle_valorintereses}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempresaLabel_valorprima}"/>
+                        <h:outputText value="#{liquidacionempresaController.selected.valorprima}" title="#{bundle.ViewLiquidacionempresaTitle_valorprima}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempresaLabel_valorvacaciones}"/>
+                        <h:outputText value="#{liquidacionempresaController.selected.valorvacaciones}" title="#{bundle.ViewLiquidacionempresaTitle_valorvacaciones}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="LiquidacionempresaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

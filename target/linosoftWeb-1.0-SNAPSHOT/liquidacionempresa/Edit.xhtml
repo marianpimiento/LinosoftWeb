@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LiquidacionempresaEditDlg" widgetVar="LiquidacionempresaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditLiquidacionempresaTitle}">
+            <h:form id="LiquidacionempresaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{liquidacionempresaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditLiquidacionempresaLabel_idliquidacionempresa}" for="idliquidacionempresa" />
+                        <p:inputText id="idliquidacionempresa" value="#{liquidacionempresaController.selected.idliquidacionempresa}" title="#{bundle.EditLiquidacionempresaTitle_idliquidacionempresa}" required="true" requiredMessage="#{bundle.EditLiquidacionempresaRequiredMessage_idliquidacionempresa}"/>
+
+                        <p:outputLabel value="#{bundle.EditLiquidacionempresaLabel_idperiodo}" for="idperiodo" />
+                        <p:selectOneMenu id="idperiodo" value="#{liquidacionempresaController.selected.idperiodo}" required="true" requiredMessage="#{bundle.EditLiquidacionempresaRequiredMessage_idperiodo}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{periodoController.itemsAvailableSelectOne}"
+                                           var="idperiodoItem"
+                                           itemValue="#{idperiodoItem}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.EditLiquidacionempresaLabel_baseaportes}" for="baseaportes" />
+                        <p:inputText id="baseaportes" value="#{liquidacionempresaController.selected.baseaportes}" title="#{bundle.EditLiquidacionempresaTitle_baseaportes}" required="true" requiredMessage="#{bundle.EditLiquidacionempresaRequiredMessage_baseaportes}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempresaLabel_valorcaja}" for="valorcaja" />
+                        <p:inputText id="valorcaja" value="#{liquidacionempresaController.selected.valorcaja}" title="#{bundle.EditLiquidacionempresaTitle_valorcaja}" required="true" requiredMessage="#{bundle.EditLiquidacionempresaRequiredMessage_valorcaja}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempresaLabel_valorsena}" for="valorsena" />
+                        <p:inputText id="valorsena" value="#{liquidacionempresaController.selected.valorsena}" title="#{bundle.EditLiquidacionempresaTitle_valorsena}" required="true" requiredMessage="#{bundle.EditLiquidacionempresaRequiredMessage_valorsena}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempresaLabel_valoricbf}" for="valoricbf" />
+                        <p:inputText id="valoricbf" value="#{liquidacionempresaController.selected.valoricbf}" title="#{bundle.EditLiquidacionempresaTitle_valoricbf}" required="true" requiredMessage="#{bundle.EditLiquidacionempresaRequiredMessage_valoricbf}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempresaLabel_baseprestaciones}" for="baseprestaciones" />
+                        <p:inputText id="baseprestaciones" value="#{liquidacionempresaController.selected.baseprestaciones}" title="#{bundle.EditLiquidacionempresaTitle_baseprestaciones}" required="true" requiredMessage="#{bundle.EditLiquidacionempresaRequiredMessage_baseprestaciones}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempresaLabel_basetransporte}" for="basetransporte" />
+                        <p:inputText id="basetransporte" value="#{liquidacionempresaController.selected.basetransporte}" title="#{bundle.EditLiquidacionempresaTitle_basetransporte}" required="true" requiredMessage="#{bundle.EditLiquidacionempresaRequiredMessage_basetransporte}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempresaLabel_valorcesantias}" for="valorcesantias" />
+                        <p:inputText id="valorcesantias" value="#{liquidacionempresaController.selected.valorcesantias}" title="#{bundle.EditLiquidacionempresaTitle_valorcesantias}" required="true" requiredMessage="#{bundle.EditLiquidacionempresaRequiredMessage_valorcesantias}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempresaLabel_valorintereses}" for="valorintereses" />
+                        <p:inputText id="valorintereses" value="#{liquidacionempresaController.selected.valorintereses}" title="#{bundle.EditLiquidacionempresaTitle_valorintereses}" required="true" requiredMessage="#{bundle.EditLiquidacionempresaRequiredMessage_valorintereses}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempresaLabel_valorprima}" for="valorprima" />
+                        <p:inputText id="valorprima" value="#{liquidacionempresaController.selected.valorprima}" title="#{bundle.EditLiquidacionempresaTitle_valorprima}" required="true" requiredMessage="#{bundle.EditLiquidacionempresaRequiredMessage_valorprima}"/>
+                        <p:outputLabel value="#{bundle.EditLiquidacionempresaLabel_valorvacaciones}" for="valorvacaciones" />
+                        <p:inputText id="valorvacaciones" value="#{liquidacionempresaController.selected.valorvacaciones}" title="#{bundle.EditLiquidacionempresaTitle_valorvacaciones}" required="true" requiredMessage="#{bundle.EditLiquidacionempresaRequiredMessage_valorvacaciones}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{liquidacionempresaController.update}" value="#{bundle.Save}" update="display,:LiquidacionempresaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'LiquidacionempresaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="LiquidacionempresaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

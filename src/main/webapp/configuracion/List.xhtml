@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListConfiguracionTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="ConfiguracionListForm">
+                <p:panel header="#{bundle.ListConfiguracionTitle}">
+                    <p:dataTable id="datalist" value="#{configuracionController.items}" var="item"
+                                 selectionMode="single" selection="#{configuracionController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idconfiguracion}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_idconfiguracion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idconfiguracion}"/>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Año"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idperiodo.anio}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Mes"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idperiodo.mes}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Corte"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idperiodo.corte}"/>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_porcentajecaja}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.porcentajecaja}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_porcentajesena}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.porcentajesena}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_porcentajeicbf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.porcentajeicbf}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_salariominimo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.salariominimo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_subsidiotransporte}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.subsidiotransporte}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_diasliquidar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diasliquidar}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_provisioncesantias}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.provisioncesantias}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_provisionintereses}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.provisionintereses}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_provisionprima}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.provisionprima}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_provisionvacaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.provisionvacaciones}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_saludempleado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.saludempleado}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_saludempresa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.saludempresa}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_convencionempleado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.convencionempleado}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_convencionempresa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.convencionempresa}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_pensionempleado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pensionempleado}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfiguracionTitle_pensionempresa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pensionempresa}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{configuracionController.prepareCreate}" update=":ConfiguracionCreateForm" oncomplete="PF('ConfiguracionCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ConfiguracionViewForm" oncomplete="PF('ConfiguracionViewDialog').show()" disabled="#{empty configuracionController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":ConfiguracionEditForm" oncomplete="PF('ConfiguracionEditDialog').show()" disabled="#{empty configuracionController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{configuracionController.destroy}" update=":growl,datalist" disabled="#{empty configuracionController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

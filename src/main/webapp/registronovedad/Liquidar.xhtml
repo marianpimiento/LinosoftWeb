@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="Liquidación de Novedades"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+
+                <TABLE BORDER="0" width="1250" align="center" > 
+
+                    <TR> 
+   
+                        <TH></TH> 
+                        <TH height="200"><h:graphicImage value="/linosoft.png" alt="linosoft" /></TH> 
+                        <TH></TH> 
+
+                    </TR> 
+
+                    <TR> 
+                        <TD height="200"></TD> 
+                        <TD align="center">
+                            
+                            <p:growl id="mensajes" showDetail="true" life="4000" />
+    
+                            <h:form>
+                                <p:panel header="LIQUIDACION DE NOMINA" style="width:300px">
+                                    <h:panelGrid columns="2" cellpadding="5">
+                        
+                                        <p:outputLabel value="Periodo a Liquidar" for="idperiodo" />
+                                        <p:selectOneMenu id="idperiodo" value="#{periodoController.periodo}" required="true" requiredMessage="#{bundle.EditRegistronovedadRequiredMessage_idperiodo}">
+                                            <f:selectItems value="#{periodoController.itemsAvailableSelectOne}"
+                                                           var="idperiodoItem"
+                                                           itemValue="#{idperiodoItem}"/>
+                                        </p:selectOneMenu>
+
+                                        <f:facet name="footer">
+                                            <p:commandButton 
+                                                id="liquidarButton" 
+                                                value="Iniciar Liquidación"
+                                                action="#{liquidacionempleadosController.liquidarNomina}" 
+                                                update=":mensajes"/>
+                                        </f:facet>
+
+                                        
+                                        
+                                    </h:panelGrid>
+                                </p:panel>
+                            </h:form>
+
+                        </TD> 
+                        <TD></TD> 
+
+                    </TR> 
+
+                </TABLE> 
+            
+        </ui:define>
+    </ui:composition>
+
+</html>

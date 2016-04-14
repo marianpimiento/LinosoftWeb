@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ContratoViewDlg" widgetVar="ContratoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewContratoTitle}">
+            <h:form id="ContratoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{contratoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewContratoLabel_idcontrato}"/>
+                        <h:outputText value="#{contratoController.selected.idcontrato}" title="#{bundle.ViewContratoTitle_idcontrato}"/>
+
+                        <h:outputText value="#{bundle.ViewContratoLabel_cedula}"/>
+                        <h:outputText value="#{contratoController.selected.cedula}" title="#{bundle.ViewContratoTitle_cedula}"/>
+                        <h:outputText value="Nombres del Empleado"/>
+                        <h:outputText value="#{contratoController.selected.cedula.nombres}" title="#{bundle.ViewContratoTitle_cedula}"/>
+                        <h:outputText value="Apellidos del Empleado"/>
+                        <h:outputText value="#{contratoController.selected.cedula.apellidos}" title="#{bundle.ViewContratoTitle_cedula}"/>
+
+                        <h:outputText value="#{bundle.ViewContratoLabel_tipo}"/>
+                        <h:outputText value="#{contratoController.selected.tipo}" title="#{bundle.ViewContratoTitle_tipo}"/>
+                        <h:outputText value="#{bundle.ViewContratoLabel_ingreso}"/>
+                        <h:outputText value="#{contratoController.selected.ingreso}" title="#{bundle.ViewContratoTitle_ingreso}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewContratoLabel_termino}"/>
+                        <h:outputText value="#{contratoController.selected.termino}" title="#{bundle.ViewContratoTitle_termino}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewContratoLabel_arl}"/>
+                        <h:outputText value="#{contratoController.selected.arl}" title="#{bundle.ViewContratoTitle_arl}"/>
+                        <h:outputText value="#{bundle.ViewContratoLabel_idpension}"/>
+                        <h:outputText value="#{contratoController.selected.idpension.nombre}" title="#{bundle.ViewContratoTitle_idpension}"/>
+                        <h:outputText value="#{bundle.ViewContratoLabel_ideps}"/>
+                        <h:outputText value="#{contratoController.selected.ideps.nombre}" title="#{bundle.ViewContratoTitle_ideps}"/>
+                        <h:outputText value="#{bundle.ViewContratoLabel_idcargo}"/>
+                        <h:outputText value="#{contratoController.selected.idcargo.nombre}" title="#{bundle.ViewContratoTitle_idcargo}"/>
+                        <h:outputText value="#{bundle.ViewContratoLabel_idcaja}"/>
+                        <h:outputText value="#{contratoController.selected.idcaja.nombre}" title="#{bundle.ViewContratoTitle_idcaja}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ContratoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListLiquidacionempleadosTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="LiquidacionempleadosListForm">
+                <p:panel header="#{bundle.ListLiquidacionempleadosTitle}">
+                    <p:dataTable id="datalist" value="#{liquidacionempleadosController.items}" var="item"
+                                 selectionMode="single" selection="#{liquidacionempleadosController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idliquidacionempleado}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_idliquidacionempleado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idliquidacionempleado}"/>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Año"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idperiodo.anio}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Mes"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idperiodo.mes}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Corte"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idperiodo.corte}"/>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_cedula}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cedula}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nombres"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cedula.nombres}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Apellidos"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cedula.apellidos}"/>
+                        </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_sueldo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sueldo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_diassalario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diassalario}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_salario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.salario}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_diastransporte}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diastransporte}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_transporte}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.transporte}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_ingresobaseaportes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ingresobaseaportes}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_diasaportes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diasaportes}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_aportessalud}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.aportessalud}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_aportespension}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.aportespension}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_fondosolidaridad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fondosolidaridad}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_ingresobaseprestaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ingresobaseprestaciones}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_devengados}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.devengados}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_deducidos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deducidos}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_neto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.neto}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_idpension}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idpension.nombre}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_ideps}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ideps.nombre}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempleadosTitle_idcaja}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idcaja.nombre}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{liquidacionempleadosController.prepareCreate}" update=":LiquidacionempleadosCreateForm" oncomplete="PF('LiquidacionempleadosCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":LiquidacionempleadosViewForm" oncomplete="PF('LiquidacionempleadosViewDialog').show()" disabled="#{empty liquidacionempleadosController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":LiquidacionempleadosEditForm" oncomplete="PF('LiquidacionempleadosEditDialog').show()" disabled="#{empty liquidacionempleadosController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{liquidacionempleadosController.destroy}" update=":growl,datalist" disabled="#{empty liquidacionempleadosController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

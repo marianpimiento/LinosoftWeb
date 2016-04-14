@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RegistronovedadEditDlg" widgetVar="RegistronovedadEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditRegistronovedadTitle}">
+            <h:form id="RegistronovedadEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{registronovedadController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditRegistronovedadLabel_idregistro}" for="idregistro" />
+                        <p:inputText id="idregistro" value="#{registronovedadController.selected.idregistro}" title="#{bundle.EditRegistronovedadTitle_idregistro}" required="true" requiredMessage="#{bundle.EditRegistronovedadRequiredMessage_idregistro}"/>
+                        
+                        <p:outputLabel value="#{bundle.EditRegistronovedadLabel_idperiodo}" for="idperiodo" />
+                        <p:selectOneMenu id="idperiodo" value="#{registronovedadController.selected.idperiodo}" required="true" requiredMessage="#{bundle.EditRegistronovedadRequiredMessage_idperiodo}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{periodoController.itemsAvailableSelectOne}"
+                                           var="idperiodoItem"
+                                           itemValue="#{idperiodoItem}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.EditRegistronovedadLabel_cedula}" for="cedula" />
+                        <p:selectOneMenu id="cedula" value="#{registronovedadController.selected.cedula}" required="true" requiredMessage="#{bundle.EditRegistronovedadRequiredMessage_cedula}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
+                                           var="cedulaItem"
+                                           itemValue="#{cedulaItem}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.EditRegistronovedadLabel_idnovedad}" for="idnovedad" />
+                        <p:selectOneMenu id="idnovedad" value="#{registronovedadController.selected.idnovedad}" required="true" requiredMessage="#{bundle.EditRegistronovedadRequiredMessage_idnovedad}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{novedadController.itemsAvailableSelectOne}"
+                                           var="idnovedadItem"
+                                           itemValue="#{idnovedadItem}"/>
+                        </p:selectOneMenu>
+                        
+                        <p:outputLabel value="#{bundle.EditRegistronovedadLabel_cantidad}" for="cantidad" />
+                        <p:inputText id="cantidad" value="#{registronovedadController.selected.cantidad}" title="#{bundle.EditRegistronovedadTitle_cantidad}" required="true" requiredMessage="#{bundle.EditRegistronovedadRequiredMessage_cantidad}"/>
+                        <p:outputLabel value="#{bundle.EditRegistronovedadLabel_valor}" for="valor" />
+                        <p:inputText id="valor" value="#{registronovedadController.selected.valor}" title="#{bundle.EditRegistronovedadTitle_valor}" required="true" requiredMessage="#{bundle.EditRegistronovedadRequiredMessage_valor}"/>
+                        <p:outputLabel value="#{bundle.EditRegistronovedadLabel_total}" for="total" />
+                        <p:inputText id="total" value="#{registronovedadController.selected.total}" title="#{bundle.EditRegistronovedadTitle_total}" required="true" requiredMessage="#{bundle.EditRegistronovedadRequiredMessage_total}"/>
+
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{registronovedadController.update}" value="#{bundle.Save}" update="display,:RegistronovedadListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RegistronovedadEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RegistronovedadEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

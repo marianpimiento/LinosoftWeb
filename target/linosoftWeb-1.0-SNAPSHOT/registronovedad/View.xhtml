@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RegistronovedadViewDlg" widgetVar="RegistronovedadViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewRegistronovedadTitle}">
+            <h:form id="RegistronovedadViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{registronovedadController.selected != null}">
+                        <h:outputText value="#{bundle.ViewRegistronovedadLabel_idregistro}"/>
+                        <h:outputText value="#{registronovedadController.selected.idregistro}" title="#{bundle.ViewRegistronovedadTitle_idregistro}"/>
+
+                        <h:outputText value="Año:"/>
+                        <h:outputText value="#{registronovedadController.selected.idperiodo.anio}" title="#{bundle.ViewRegistronovedadTitle_idperiodo}"/>
+                        <h:outputText value="Mes:"/>
+                        <h:outputText value="#{registronovedadController.selected.idperiodo.mes}" title="#{bundle.ViewRegistronovedadTitle_idperiodo}"/>
+                        <h:outputText value="Corte:"/>
+                        <h:outputText value="#{registronovedadController.selected.idperiodo.corte}" title="#{bundle.ViewRegistronovedadTitle_idperiodo}"/>
+                        
+                        <h:outputText value="#{bundle.ViewRegistronovedadLabel_cedula}"/>
+                        <h:outputText value="#{registronovedadController.selected.cedula}" title="#{bundle.ViewRegistronovedadTitle_cedula}"/>
+                        <h:outputText value="Nombres:"/>
+                        <h:outputText value="#{registronovedadController.selected.cedula.nombres}" title="#{bundle.ViewRegistronovedadTitle_cedula}"/>
+                        <h:outputText value="Apellidos:"/>
+                        <h:outputText value="#{registronovedadController.selected.cedula.apellidos}" title="#{bundle.ViewRegistronovedadTitle_cedula}"/>
+
+                        <h:outputText value="Novedad:"/>
+                        <h:outputText value="#{registronovedadController.selected.idnovedad.nombre}" title="#{bundle.ViewRegistronovedadTitle_idnovedad}"/>
+                        
+                        <h:outputText value="#{bundle.ViewRegistronovedadLabel_cantidad}"/>
+                        <h:outputText value="#{registronovedadController.selected.cantidad}" title="#{bundle.ViewRegistronovedadTitle_cantidad}"/>
+                        <h:outputText value="#{bundle.ViewRegistronovedadLabel_valor}"/>
+                        <h:outputText value="#{registronovedadController.selected.valor}" title="#{bundle.ViewRegistronovedadTitle_valor}"/>
+                        <h:outputText value="#{bundle.ViewRegistronovedadLabel_total}"/>
+                        <h:outputText value="#{registronovedadController.selected.total}" title="#{bundle.ViewRegistronovedadTitle_total}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="RegistronovedadViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

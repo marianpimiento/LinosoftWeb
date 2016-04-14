@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LiquidacionempleadosViewDlg" widgetVar="LiquidacionempleadosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewLiquidacionempleadosTitle}">
+            <h:form id="LiquidacionempleadosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{liquidacionempleadosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_idliquidacionempleado}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.idliquidacionempleado}" title="#{bundle.ViewLiquidacionempleadosTitle_idliquidacionempleado}"/>
+
+                        <h:outputText value="Año"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.idperiodo.anio}" title="#{bundle.ViewLiquidacionempleadosTitle_idperiodo}"/>
+                        <h:outputText value="Mes"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.idperiodo.mes}" title="#{bundle.ViewLiquidacionempleadosTitle_idperiodo}"/>
+                        <h:outputText value="Corte"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.idperiodo.corte}" title="#{bundle.ViewLiquidacionempleadosTitle_idperiodo}"/>
+
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_cedula}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.cedula}" title="#{bundle.ViewLiquidacionempleadosTitle_cedula}"/>
+                        <h:outputText value="Nombres"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.cedula.nombres}" title="#{bundle.ViewLiquidacionempleadosTitle_cedula}"/>
+                        <h:outputText value="Apellidos"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.cedula.apellidos}" title="#{bundle.ViewLiquidacionempleadosTitle_cedula}"/>
+
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_sueldo}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.sueldo}" title="#{bundle.ViewLiquidacionempleadosTitle_sueldo}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_diassalario}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.diassalario}" title="#{bundle.ViewLiquidacionempleadosTitle_diassalario}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_salario}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.salario}" title="#{bundle.ViewLiquidacionempleadosTitle_salario}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_diastransporte}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.diastransporte}" title="#{bundle.ViewLiquidacionempleadosTitle_diastransporte}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_transporte}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.transporte}" title="#{bundle.ViewLiquidacionempleadosTitle_transporte}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_ingresobaseaportes}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.ingresobaseaportes}" title="#{bundle.ViewLiquidacionempleadosTitle_ingresobaseaportes}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_diasaportes}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.diasaportes}" title="#{bundle.ViewLiquidacionempleadosTitle_diasaportes}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_aportessalud}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.aportessalud}" title="#{bundle.ViewLiquidacionempleadosTitle_aportessalud}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_aportespension}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.aportespension}" title="#{bundle.ViewLiquidacionempleadosTitle_aportespension}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_fondosolidaridad}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.fondosolidaridad}" title="#{bundle.ViewLiquidacionempleadosTitle_fondosolidaridad}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_ingresobaseprestaciones}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.ingresobaseprestaciones}" title="#{bundle.ViewLiquidacionempleadosTitle_ingresobaseprestaciones}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_devengados}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.devengados}" title="#{bundle.ViewLiquidacionempleadosTitle_devengados}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_deducidos}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.deducidos}" title="#{bundle.ViewLiquidacionempleadosTitle_deducidos}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_neto}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.neto}" title="#{bundle.ViewLiquidacionempleadosTitle_neto}"/>
+
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_idpension}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.idpension.nombre}" title="#{bundle.ViewLiquidacionempleadosTitle_idpension}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_ideps}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.ideps.nombre}" title="#{bundle.ViewLiquidacionempleadosTitle_ideps}"/>
+                        <h:outputText value="#{bundle.ViewLiquidacionempleadosLabel_idcaja}"/>
+                        <h:outputText value="#{liquidacionempleadosController.selected.idcaja.nombre}" title="#{bundle.ViewLiquidacionempleadosTitle_idcaja}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="LiquidacionempleadosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

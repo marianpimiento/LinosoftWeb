@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CajacompensacionEditDlg" widgetVar="CajacompensacionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCajacompensacionTitle}">
+            <h:form id="CajacompensacionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cajacompensacionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCajacompensacionLabel_idcaja}" for="idcaja" />
+                        <p:inputText id="idcaja" value="#{cajacompensacionController.selected.idcaja}" title="#{bundle.EditCajacompensacionTitle_idcaja}" required="true" requiredMessage="#{bundle.EditCajacompensacionRequiredMessage_idcaja}"/>
+                        <p:outputLabel value="#{bundle.EditCajacompensacionLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{cajacompensacionController.selected.nombre}" title="#{bundle.EditCajacompensacionTitle_nombre}" required="true" requiredMessage="#{bundle.EditCajacompensacionRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditCajacompensacionLabel_nit}" for="nit" />
+                        <p:inputText id="nit" value="#{cajacompensacionController.selected.nit}" title="#{bundle.EditCajacompensacionTitle_nit}" required="true" requiredMessage="#{bundle.EditCajacompensacionRequiredMessage_nit}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cajacompensacionController.update}" value="#{bundle.Save}" update="display,:CajacompensacionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CajacompensacionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CajacompensacionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

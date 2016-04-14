@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ContratoEditDlg" widgetVar="ContratoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditContratoTitle}">
+            <h:form id="ContratoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{contratoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditContratoLabel_idcontrato}" for="idcontrato" />
+                        <p:inputText id="idcontrato" value="#{contratoController.selected.idcontrato}" title="#{bundle.EditContratoTitle_idcontrato}" required="true" requiredMessage="#{bundle.EditContratoRequiredMessage_idcontrato}"/>
+
+                        <p:outputLabel value="#{bundle.EditContratoLabel_cedula}" for="cedula" />
+                        <p:selectOneMenu id="cedula" value="#{contratoController.selected.cedula}" required="true" requiredMessage="#{bundle.EditContratoRequiredMessage_cedula}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
+                                           var="cedulaItem"
+                                           itemValue="#{cedulaItem}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.EditContratoLabel_tipo}" for="tipo" />
+                        <p:selectOneMenu id="tipo" value="#{contratoController.selected.tipo}" >
+                            <f:selectItem itemLabel="Seleccione una opción" itemValue="" />
+                            <f:selectItem itemLabel="Tiempo Completo" itemValue="C" />
+                            <f:selectItem itemLabel="Medio Tiempo" itemValue="M" />
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="#{bundle.EditContratoLabel_ingreso}" for="ingreso" />
+                        <p:calendar id="ingreso" pattern="MM/dd/yyyy" value="#{contratoController.selected.ingreso}" title="#{bundle.EditContratoTitle_ingreso}" required="true" requiredMessage="#{bundle.EditContratoRequiredMessage_ingreso}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditContratoLabel_termino}" for="termino" />
+                        <p:calendar id="termino" pattern="MM/dd/yyyy" value="#{contratoController.selected.termino}" title="#{bundle.EditContratoTitle_termino}" required="true" requiredMessage="#{bundle.EditContratoRequiredMessage_termino}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditContratoLabel_arl}" for="arl" />
+                        <p:inputText id="arl" value="#{contratoController.selected.arl}" title="#{bundle.EditContratoTitle_arl}" required="true" requiredMessage="#{bundle.EditContratoRequiredMessage_arl}"/>
+                        <p:outputLabel value="#{bundle.EditContratoLabel_idpension}" for="idpension" />
+                        <p:selectOneMenu id="idpension" value="#{contratoController.selected.idpension}" required="true" requiredMessage="#{bundle.EditContratoRequiredMessage_idpension}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{fondopensionController.itemsAvailableSelectOne}"
+                                           var="idpensionItem"
+                                           itemValue="#{idpensionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditContratoLabel_ideps}" for="ideps" />
+                        <p:selectOneMenu id="ideps" value="#{contratoController.selected.ideps}" required="true" requiredMessage="#{bundle.EditContratoRequiredMessage_ideps}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{epsController.itemsAvailableSelectOne}"
+                                           var="idepsItem"
+                                           itemValue="#{idepsItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditContratoLabel_idcargo}" for="idcargo" />
+                        <p:selectOneMenu id="idcargo" value="#{contratoController.selected.idcargo}" required="true" requiredMessage="#{bundle.EditContratoRequiredMessage_idcargo}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cargoController.itemsAvailableSelectOne}"
+                                           var="idcargoItem"
+                                           itemValue="#{idcargoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditContratoLabel_idcaja}" for="idcaja" />
+                        <p:selectOneMenu id="idcaja" value="#{contratoController.selected.idcaja}" required="true" requiredMessage="#{bundle.EditContratoRequiredMessage_idcaja}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cajacompensacionController.itemsAvailableSelectOne}"
+                                           var="idcajaItem"
+                                           itemValue="#{idcajaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{contratoController.update}" value="#{bundle.Save}" update="display,:ContratoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ContratoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ContratoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

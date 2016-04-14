@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">      
+      
+    <h:head>
+        <title>Inicio del Sistema</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    
+    <h:body>
+        
+        <p:layout fullPage="true">
+        
+            <p:layoutUnit position="north" size="10" header="#{bundle.AppName}">
+            </p:layoutUnit>
+        
+            <p:layoutUnit position="south" size="120">
+	    <h:graphicImage value="/logo.png" alt="Weld logo" />
+       
+            </p:layoutUnit>
+
+            <p:layoutUnit    position="center">
+                
+                <TABLE BORDER="0" width="1250" align="center" > 
+
+                    <TR> 
+   
+                        <TH></TH> 
+                        <TH height="200"><h:graphicImage value="/linosoft.png" alt="linosoft" /></TH> 
+                        <TH></TH> 
+
+                    </TR> 
+
+                    <TR> 
+                        <TD height="200"></TD> 
+                        <TD align="center">
+                            
+                            <p:growl id="mensajes" showDetail="true" life="2000" />
+    
+                            <h:form>
+                                <p:panel header="Login" style="width:300px">
+                                    <h:panelGrid columns="2" cellpadding="5">
+
+                                        <h:outputLabel for="username" value="Usuario:" />
+                                        <p:inputText 
+                                            value="#{usuarioController.ingreso}"
+                                            id="username"
+                                            required="true" 
+                                            title="Usuario" />
+
+                                        <h:outputLabel for="password" value="Contraseña:" />
+                                        <p:password 
+                                            value="#{usuarioController.clave}" 
+                                            id="password" 
+                                            required="true"
+                                            title="Contraseña" />
+                            
+                                        <f:facet name="footer">
+                                            <p:commandButton 
+                                                id="loginButton" 
+                                                value="Login"
+                                                action="#{usuarioController.validaUsuario}" 
+                                                update=":mensajes"/>
+                                        </f:facet>
+      
+                                    </h:panelGrid>
+                                </p:panel>
+                            </h:form>
+
+                        </TD> 
+                        <TD></TD> 
+
+                    </TR> 
+
+                </TABLE> 
+                
+            </p:layoutUnit>
+
+        </p:layout>
+       
+    </h:body>
+
+</html>
+

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+        
+    </h:head>
+
+    <h:body>
+
+        <p:growl id="growl" life="3000" />
+
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="65" header="#{bundle.AppName}">
+                <h:form id="menuForm">
+
+                    <p:menubar>
+
+                        <p:submenu label="Básicos">
+                            <p:menuitem value="EPS" url="/faces/eps/List.xhtml" />
+                            <p:menuitem value="Fondos de Pensión" url="/faces/faces/fondopension/List.xhtml" />
+                            <p:menuitem value="Cajas de Compensasión" url="/faces/cajacompensacion/List.xhtml" />
+                            <p:separator />
+                            <p:menuitem value="Cargos" url="/faces/cargo/List.xhtml" />
+                            <p:separator />
+                            <p:menuitem value="Novedades" url="/faces/novedad/List.xhtml" />
+                        </p:submenu>
+ 
+                        <p:submenu label="Empleados">
+                            <p:menuitem value="Información de Empleados" url="/faces/empleado/List.xhtml" />
+                            <p:menuitem value="Registro de Contratos" url="/faces/contrato/List.xhtml" />
+                        </p:submenu>
+
+                        <p:submenu label="Liquidación">
+                            <p:menuitem value="Registro de Novedades" url="/faces/registronovedad/List.xhtml" />
+                            <p:separator />
+                            <p:menuitem value="Liquidación de Empleados" url="/faces/liquidacionempleados/List.xhtml" />
+                            <p:menuitem value="Liquidación Empresa" url="/faces/liquidacionempresa/List.xhtml" />
+                        </p:submenu>
+
+                        <p:submenu label="Parámetros">
+                            <p:menuitem value="Configuración Básica" url="/faces/configuracion/List.xhtml" />
+                            <p:separator />
+                            <p:menuitem value="Registro de Periodos" url="/faces/periodo/List.xhtml" />
+                        </p:submenu>
+
+                        <p:menuitem value="Usuarios" url="/faces/usuario/List.xhtml" />
+
+                    </p:menubar>
+                </h:form>
+                
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="120">
+                <ui:insert name="footer"/>
+            <div id="footer">
+	    <h:graphicImage value="/logo.png" alt="Weld logo" />
+           
+        </div>
+
+                
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <ui:insert name="body"/>
+
+                <TABLE BORDER="0" width="1250" align="center" > 
+
+                    <TR> 
+   
+                        <TH></TH> 
+                        <TH height="200"><h:graphicImage value="/linosoft.png" alt="linosoft" /></TH> 
+                        <TH></TH> 
+
+                    </TR> 
+
+                    <TR> 
+                        <TD height="250"></TD> 
+                        <TD>
+                        </TD> 
+                        <TD></TD> 
+
+                    </TR> 
+
+                </TABLE> 
+                
+            </p:layoutUnit>
+
+        </p:layout>
+
+    </h:body>
+
+</html>

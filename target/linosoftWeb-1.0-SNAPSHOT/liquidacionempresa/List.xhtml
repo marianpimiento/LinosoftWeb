@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListLiquidacionempresaTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="LiquidacionempresaListForm">
+                <p:panel header="#{bundle.ListLiquidacionempresaTitle}">
+                    <p:dataTable id="datalist" value="#{liquidacionempresaController.items}" var="item"
+                                 selectionMode="single" selection="#{liquidacionempresaController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idliquidacionempresa}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempresaTitle_idliquidacionempresa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idliquidacionempresa}"/>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Año"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idperiodo.anio}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Mes"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idperiodo.mes}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Cortes"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idperiodo.corte}"/>
+                        </p:column>
+
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempresaTitle_baseaportes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.baseaportes}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempresaTitle_valorcaja}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valorcaja}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempresaTitle_valorsena}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valorsena}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempresaTitle_valoricbf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valoricbf}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempresaTitle_baseprestaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.baseprestaciones}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempresaTitle_basetransporte}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.basetransporte}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempresaTitle_valorcesantias}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valorcesantias}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempresaTitle_valorintereses}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valorintereses}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempresaTitle_valorprima}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valorprima}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLiquidacionempresaTitle_valorvacaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valorvacaciones}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{liquidacionempresaController.prepareCreate}" update=":LiquidacionempresaCreateForm" oncomplete="PF('LiquidacionempresaCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":LiquidacionempresaViewForm" oncomplete="PF('LiquidacionempresaViewDialog').show()" disabled="#{empty liquidacionempresaController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":LiquidacionempresaEditForm" oncomplete="PF('LiquidacionempresaEditDialog').show()" disabled="#{empty liquidacionempresaController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{liquidacionempresaController.destroy}" update=":growl,datalist" disabled="#{empty liquidacionempresaController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>
